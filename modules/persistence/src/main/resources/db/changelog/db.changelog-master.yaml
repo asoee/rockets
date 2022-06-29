@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: soee
+      changes:
+        - createTable:
+            tableName: rocket_message
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: channel
+                  type: varchar(50)
+              - column:
+                  name: message_timestamp
+                  type: timestamp
+              - column:
+                  name: message_type
+                  type: varchar(50)
+              - column:
+                  name: sequence_number
+                  type: BIGINT
+              - column:
+                  name: rocket_type
+                  type: varchar(50)
+              - column:
+                  name: launch_speed
+                  type: BIGINT
+              - column:
+                  name: mission
+                  type: varchar(50)
+              - column:
+                  name: speed_change
+                  type: BIGINT
+              - column:
+                  name: reason
+                  type: varchar(100)
+
+  - changeSet:
+      id: 2
+      author: soee
+      changes:
+        - createIndex:
+            indexName: UX_channel_sequence
+            unique: true
+            tableName: rocket_message
+            columns:
+              - column:
+                  name: channel
+              - column:
+                  name: sequence_number

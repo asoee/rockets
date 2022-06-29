@@ -1,0 +1,23 @@
+subprojects {
+
+    apply plugin: "java-library"
+
+    group = 'org.soee'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '17'
+
+	repositories {
+		mavenCentral()
+	}
+
+	tasks.withType(Test) {
+		useJUnitPlatform()
+	}
+
+    dependencies {
+        implementation platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+    }
+}
+
+
+

@@ -1,0 +1,13 @@
+pluginManagement {
+    plugins {
+        id 'org.springframework.boot' version "$springBootVersion"
+    }
+}
+
+rootProject.name = 'rockets'
+
+include ":modules:main"
+include ":modules:rest:messages"
+include ":modules:rest:rockets"
+include ":modules:services"
+include ":modules:persistence"
